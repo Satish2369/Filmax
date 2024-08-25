@@ -57,7 +57,7 @@ useEffect(() => {
 
       setSelectedMovie(data);
       setGenres(data.genres.map((genre) => genre.name));
-      console.log(data)
+       console.log(data)
     };
 
 
@@ -70,6 +70,7 @@ useEffect(() => {
       API_OPTIONS
     );
     const data = await response.json();
+    // console.log(data)
     setCast(data.cast.slice(0, 5));
   };
 
@@ -91,6 +92,7 @@ useEffect(() => {
     const trailerVideo = data.results.find(
       (video) => video.type === "Trailer"
     );
+    // console.log(data)
     setTrailer(trailerVideo);
     setLoadingTrailer(false);
   };
@@ -119,17 +121,58 @@ useEffect(() => {
 
   return (
 
-    <div className='flex justify-center items-center bg-blue-200 w-screen h-screen'>
+    <div className='bg-black  w-screen h-screen p-9 font-["Neue_Montreal"] text-white'>
 
 
-     <div className='movie poster-path '>
-
-       { <img src={IMG_CDN + selectedMovie?.backdrop_path} alt="" /> }
-
-     
-     </div> 
+<div className="movieHeading  text-center m-0">
 
 
+<h1 className='text-6xl underline mb-7 font-["Summer_Loving"] text-orange-500'>   {selectedMovie?.title}</h1>
+
+
+</div>
+
+
+<div className='flex gap-10'>
+
+
+<div className='MovieTrailer  mt-[1.3vw]'>
+
+{trailer && (
+  <div className='MovieTrailer  w-[50vw] h-[30vw]'>
+   
+
+
+<iframe 
+         className='aspect-video  w-[100%] h-[100%]  rounded-md border border-orange-500'
+         src={`https://www.youtube.com/embed/${trailer.key}?autoplay=1&controls=0&showinfo=0&rel=0&modestbranding=1&playsinline=1&playlist=${trailer.key}`}
+
+         
+         title="YouTube video player" 
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" ></iframe> 
+
+
+
+
+  </div>
+)}
+
+
+</div>
+
+<div className='w-[30vw] ml-[7rem] '>
+  <h1 className='text-center underline text-7xl m-4 cursor-pointer text-orange-500 font-["Summer_Loving"] '>Overview</h1>
+   <h3 className='text-justify '>{selectedMovie?.overview}</h3>
+
+   <p className=' text-4xl text-center text-orange-600 font-["Summer_Loving"] text-justify leading-none'>{selectedMovie?.tagline}</p>
+
+
+</div>
+
+
+
+
+</div>
 
 
 

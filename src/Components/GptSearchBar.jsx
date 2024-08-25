@@ -32,7 +32,7 @@ return json.results
 
            
 
-    const gptQuery = "Act as a Movie recommendation system and suggest some movies for the query" + SearchText.current.value + "only give name of 5 movies,comma separated like the example result given ahead. Example Result: Gadar,Sholay,Don,Ragini mms,koi mil gya" +"   return me  in the form of strings + Plz dont ask the user for suggestion just show some random movies and if the user is requesting some adult content then Display 'We here don't recommend adult movies here.Search anything else' with a  emoji    "
+    const gptQuery = "Act as a Movie recommendation system and suggest some movies for the query" + SearchText.current.value + "only give name of 5 movies,comma separated like the example result given ahead. Example Result: Gadar,Sholay,Don,Ragini mms,koi mil gya" +"   return me  in the form of strings + Plz dont ask the user for suggestion just show some random movies and if the user is requesting some adult content then Display 'We here don't recommend adult movies here.Search anything else' with a  emoji  and plz suggest movie on the basis of keyword only   "
 //Make an api call to gpt api andd get movie results
 
 
