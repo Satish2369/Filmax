@@ -5,6 +5,7 @@ import { API_OPTIONS } from '../utils/constants'
 import { useEffect,useState } from 'react'
 import { useParams,useNavigate } from 'react-router-dom'
 import { IMG_CDN } from '../utils/constants'
+import MovieList from './MovieList'
 
 
 
@@ -80,6 +81,7 @@ useEffect(() => {
       API_OPTIONS
     );
     const data = await response.json();
+    console.log(data)
     setSimilarMovies(data.results);
   };
 
@@ -121,61 +123,54 @@ useEffect(() => {
 
   return (
 
-    <div className='bg-black  w-screen h-screen p-9 font-["Neue_Montreal"] text-white'>
-
-
-<div className="movieHeading  text-center m-0">
-
-
-<h1 className='text-6xl underline mb-7 font-["Summer_Loving"] text-orange-500'>   {selectedMovie?.title}</h1>
-
-
-</div>
-
-
+    <div className='bg-black  w-screen h-fit p-9 font-["Neue_Montreal"] text-white '>
+     <div className="movieHeading  text-center m-0">
+      <h1 className='text-6xl underline mb-7 font-["Summer_Loving"] text-orange-500 '>   {selectedMovie?.title}</h1>
+     </div>
 <div className='flex gap-10'>
 
-
 <div className='MovieTrailer  mt-[1.3vw]'>
-
 {trailer && (
   <div className='MovieTrailer  w-[50vw] h-[30vw]'>
-   
-
-
-<iframe 
+  <iframe 
          className='aspect-video  w-[100%] h-[100%]  rounded-md border border-orange-500'
          src={`https://www.youtube.com/embed/${trailer.key}?autoplay=1&controls=0&showinfo=0&rel=0&modestbranding=1&playsinline=1&playlist=${trailer.key}`}
 
          
          title="YouTube video player" 
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" ></iframe> 
-
-
-
-
-  </div>
+         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" ></iframe> 
+   </div>
 )}
-
-
+{
+      !trailer && (
+        <div className='w-[50vw] h-[30vw] bg-white flex justify-center items-center uppercase text-red-600  text-7xl font-["Summer_Loving"]'> 
+             no trailer found
+           </div>
+      )      
+}
 </div>
-
 <div className='w-[30vw] ml-[7rem] '>
   <h1 className='text-center underline text-7xl m-4 cursor-pointer text-orange-500 font-["Summer_Loving"] '>Overview</h1>
-   <h3 className='text-justify '>{selectedMovie?.overview}</h3>
-
-   <p className=' text-4xl text-center text-orange-600 font-["Summer_Loving"] text-justify leading-none'>{selectedMovie?.tagline}</p>
-
-
-</div>
+    <h3 className='text-justify '>{selectedMovie?.overview}</h3>
+     
+    
 
 
 
 
 </div>
+</div>
 
 
 
+<div className='overflow-x-scroll scrollbar-hide  mt-5'>
+
+   <MovieList title={"Similar Movies"} movies={similarMovies} />
+
+
+
+
+</div>
 
 
 

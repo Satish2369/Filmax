@@ -1,4 +1,4 @@
- export const LOGO = "https://1000logos.net/wp-content/uploads/2017/05/Netflix-Logo.png";
+ export const LOGO = "https://brandemia.org/sites/default/files/inline/images/logo-2.jpg";
 
 export const USER_AVATAR ="https://prompti.ai/wp-content/uploads/2023/07/pcboi2.png"
 

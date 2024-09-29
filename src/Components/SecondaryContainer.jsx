@@ -22,10 +22,9 @@ const movies = useSelector(store => store.movies)
       <div className='-mt-32 relative z-20'>
       <MovieList title={"Now Playing"}  movies={movies?.nowPlayingMovies}  />
       </div>
-       {/* {console.log(movies.PopularMovies)
-       } */}
-   <MovieList title={"Upcoming"}  movies={movies.upcoming}  />
-<MovieList title={"Top rated"}  movies={movies.topRated}  />
+       
+      <MovieList title={"Upcoming"}  movies={movies.upcoming}  />
+      <MovieList title={"Top rated"}  movies={movies.topRated}  />
       <MovieList title={"Popular"}  movies={movies?.popularMovies}  />
    
  

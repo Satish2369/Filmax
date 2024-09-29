@@ -90,7 +90,7 @@ const handleLanguageChange =(e)=>{
 
   return (
     <div className='w-full absolute px-8 py-2  bg-gradient-to-b from-black z-30 flex justify-between  '>
-  <img src={LOGO} className='h-18 w-44 ' alt="logo" />
+     <img src={LOGO} className='h-18 w-44 ' alt="logo" />
 
 
 { user && (

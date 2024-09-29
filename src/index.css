@@ -1,3 +1,12 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+body {
+    overflow-x: hidden; /* Prevent horizontal scrolling on the whole body */
+  }
+  
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none; /* Hide scrollbar in webkit browsers */
+  }
+  

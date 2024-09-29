@@ -24,11 +24,14 @@ useUpcoming();
 return (
   <div className="">
 
-<Header/>
+ <Header/>
 
 
-{ showGptSearch  ?( <GPTSearchPage/>  ): (<> <MainContainer/>
-<SecondaryContainer/>  </>        
+{ showGptSearch  ? ( <GPTSearchPage/>  ): (
+  <>
+    <MainContainer/>
+   <SecondaryContainer/>  
+</>        
 )
  } 
 
