@@ -55,10 +55,10 @@ useEffect(() => {
         API_OPTIONS
       );
       const data = await response.json();
-
+      
       setSelectedMovie(data);
       setGenres(data.genres.map((genre) => genre.name));
-       console.log(data)
+       
     };
 
 
@@ -71,7 +71,7 @@ useEffect(() => {
       API_OPTIONS
     );
     const data = await response.json();
-    // console.log(data)
+     console.log(data)
     setCast(data.cast.slice(0, 5));
   };
 
@@ -81,7 +81,7 @@ useEffect(() => {
       API_OPTIONS
     );
     const data = await response.json();
-    console.log(data)
+  
     setSimilarMovies(data.results);
   };
 
@@ -125,7 +125,7 @@ useEffect(() => {
 
     <div className='bg-black  w-screen h-fit p-9 font-["Neue_Montreal"] text-white '>
      <div className="movieHeading  text-center m-0">
-      <h1 className='text-6xl underline mb-7 font-["Summer_Loving"] text-orange-500 '>   {selectedMovie?.title}</h1>
+      <h1 className='text-6xl underline mb-7 font-["Summer_Loving"] text-orange-500 '>{selectedMovie?.title}</h1>
      </div>
 <div className='flex gap-10'>
 
@@ -133,7 +133,7 @@ useEffect(() => {
 {trailer && (
   <div className='MovieTrailer  w-[50vw] h-[30vw]'>
   <iframe 
-         className='aspect-video  w-[100%] h-[100%]  rounded-md border border-orange-500'
+         className='aspect-video  w-[100%] h-[100%]  rounded-md '
          src={`https://www.youtube.com/embed/${trailer.key}?autoplay=1&controls=0&showinfo=0&rel=0&modestbranding=1&playsinline=1&playlist=${trailer.key}`}
 
          
@@ -148,11 +148,34 @@ useEffect(() => {
            </div>
       )      
 }
+
+<div className=' w-full h-[20vw] mt-5'>
+         <h1 className='font-["Summer_Loving"] text-8xl text-center text-orange-600'>Genres</h1>
+          <div className=' text-center ml-4'>
+              {genres.map((genre)=>( <div key={genre} > 
+
+                <h3 className='font-["Kajiro"] text-5xl'>{genre}</h3>
+
+              </div>)
+
+)}
+
+          </div>
 </div>
-<div className='w-[30vw] ml-[7rem] '>
-  <h1 className='text-center underline text-7xl m-4 cursor-pointer text-orange-500 font-["Summer_Loving"] '>Overview</h1>
+
+
+
+
+</div>
+<div className='w-[35vw] ml-[7rem]'>
+  <h1 className='text-center underline w-[30vw] text-7xl m-4 cursor-pointer text-orange-500 font-["Summer_Loving"]  '>Overview</h1>
     <h3 className='text-justify '>{selectedMovie?.overview}</h3>
-     
+     <div className=' w-full h-[25vw] mt-5 '>
+
+       <img src={IMG_CDN  + selectedMovie?.backdrop_path}  className='object-cover w-full h-full rounded-md'     alt="" />
+
+
+     </div>
     
 
 
