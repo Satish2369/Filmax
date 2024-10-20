@@ -52,7 +52,8 @@ useEffect(()=>{
           dispatch(addUser({
               uid: uid,
               email: email,
-              displayName:displayName,photoURL:photoURL
+              displayName:displayName,
+              photoURL:photoURL
             }),
 
           )

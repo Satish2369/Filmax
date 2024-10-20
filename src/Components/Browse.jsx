@@ -8,6 +8,7 @@ import GPTSearchPage from "./GPTSearchPage";
 import { useSelector } from "react-redux";
 import useTopRated from "../hooks/useTopRated";
 import useUpcoming from "../hooks/useUpcoming";
+import SplashScreen from "./SplashScreen";
 
 
 const Browse = () => {

@@ -20,21 +20,25 @@ const handleClickMovieDetail = ()=>{
 }
 
 
-if(!posterPath) return null;
+
 
 
   return (
-    <div className='pr-3 h-82 w-72 flex-shrink-0 bg-blend-color-burn  mb-4'     onClick={handleClickMovieDetail}>
-        
-  
 
-
+     <>
+       { posterPath && (
+        <div className='pr-3 h-82 w-72 flex-shrink-0 bg-blend-color-burn  mb-4'     onClick={handleClickMovieDetail}>
         <img 
         className='h-[100%] w-[100%] aspect-6/10  '
         src={IMG_CDN + posterPath}
          alt="Movie Card"
           />
        </div>
+
+      ) 
+      }
+     </>
+    
   )
 }
 
