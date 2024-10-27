@@ -3,6 +3,7 @@ import Login from './Login'
 import Browse from  './Browse'
 import {createBrowserRouter, RouterProvider} from "react-router-dom"
 import MovieDetails from './MovieDetails'
+import WatchTrailer from './WatchTrailer'
 const Body = () => {
 
     
@@ -18,8 +19,12 @@ const Body = () => {
         element:<Browse/>
     },
     {
-        path: "/movie/:movieId", // Dynamic route for movie details
+        path: "/movie/:movieId", 
         element: <MovieDetails />
+      },
+      {
+        path: "/movie/:movieId/watchTrailer", 
+        element: <WatchTrailer />
       }
   
 ]);

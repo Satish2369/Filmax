@@ -6,6 +6,7 @@ import { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { IMG_CDN } from "../utils/constants";
 import MovieList from "./MovieList";
+import CastList from "./CastList";
 
 const MovieDetails = () => {
   const movies = useSelector((store) => store.movies);
@@ -13,10 +14,8 @@ const MovieDetails = () => {
   const { movieId } = useParams();
   const navigate = useNavigate();
   const [similarMovies, setSimilarMovies] = useState([]);
-  const [trailer, setTrailer] = useState(null);
   const [selectedMovie, setSelectedMovie] = useState(null);
-  const [loadingTrailer, setLoadingTrailer] = useState(true);
-  const [cast, setCast] = useState([]);
+ 
   const [genres, setGenres] = useState([]);
 
   const nowPlaying = movies.nowPlayingMovies;
@@ -41,7 +40,7 @@ const MovieDetails = () => {
           API_OPTIONS
         );
         const data = await response.json();
-
+      
         setSelectedMovie(data);
         setGenres(data.genres.map((genre) => genre.name));
       };
@@ -49,15 +48,7 @@ const MovieDetails = () => {
       fetchMovieDetails();
     }
 
-    const fetchCast = async () => {
-      const response = await fetch(
-        `https://api.themoviedb.org/3/movie/${movieId}/credits`,
-        API_OPTIONS
-      );
-      const data = await response.json();
-      console.log(data);
-      setCast(data.cast.slice(0, 5));
-    };
+  
 
     const fetchSimilarMovies = async () => {
       const response = await fetch(
@@ -69,108 +60,68 @@ const MovieDetails = () => {
       setSimilarMovies(data.results);
     };
 
-    const fetchTrailer = async () => {
-      const response = await fetch(
-        `https://api.themoviedb.org/3/movie/${movieId}/videos`,
-        API_OPTIONS
-      );
-      const data = await response.json();
-      const trailerVideo = data.results.find(
-        (video) => video.type === "Trailer"
-      );
-      // console.log(data)
-      setTrailer(trailerVideo);
-      setLoadingTrailer(false);
-    };
-
-    fetchCast();
+   
     fetchSimilarMovies();
-    fetchTrailer();
   }, [movieId, nowPlaying, popular, upcoming, topRated]);
 
-  useEffect(() => {
-    if (selectedMovie) {
-      const titleInterval = setInterval(() => {
-        document.title =
-          document.title === " Movie Details"
-            ? `${selectedMovie.title}`
-            : "🎬 Movie Details";
-      }, 2000);
+  const handleWatchTrailer = () => {
+    navigate(`/movie/${movieId}/watchTrailer`);
+  };
 
-      return () => clearInterval(titleInterval);
-    }
-  }, [selectedMovie]);
+
 
   return (
-    <div className='bg-blue-950  w-screen h-fit p-9 font-["Neue_Montreal"] text-white '>
-      <div className="movieHeading  text-center m-0">
-        <h1 className='text-6xl underline mb-7 font-["Summer_Loving"] text-green-500 '>
+    <div className=" bg-black  text-white w-screen min-h-screen p-[2vw] font-['Neue_Montreal']">
+      <div className="text-center m-0">
+        <h1 className='text-6xl  mb-7 font-["Summer_Loving"] text-red-600 underline'>
           {selectedMovie?.title}
         </h1>
       </div>
-      <div className="flex gap-10">
-        <div className="MovieTrailer  mt-[1.3vw]">
-          {trailer && (
-            <div className="MovieTrailer  w-[50vw] h-[30vw]">
-              <iframe
-                className="aspect-video  w-[100%] h-[100%]  rounded-md "
-                src={`https://www.youtube.com/embed/${trailer.key}?autoplay=1&controls=0&showinfo=0&rel=0&modestbranding=1&playsinline=1&playlist=${trailer.key}`}
-                title="YouTube video player"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                referrerPolicy="strict-origin-when-cross-origin"
-              ></iframe>
-            </div>
+      <div className="flex">
+        <div className="first ml-[3vw] w-[32%] h-[39vw]   rounded-md">
+          {selectedMovie?.backdrop_path && (
+            <>
+              <img
+                src={IMG_CDN + selectedMovie?.poster_path}
+                className="object-cover h-full w-full  rounded-md "
+                alt="not loaded"
+              />
+            </>
           )}
-          {!trailer && (
-            <div className='w-[50vw] h-[30vw] bg-white flex justify-center items-center uppercase text-red-600  text-7xl font-["Summer_Loving"] rounded-md'>
-              no trailer found
-            </div>
-          )}
-
-          <div className=" w-full h-[20vw] mt-5">
-            <h1 className='font-["Summer_Loving"] text-8xl text-center text-orange-600'>
-              Genres
-            </h1>
-            <div className=" text-center ml-4">
-              {genres && genres.map((genre) => (
-                <div key={genre}>
-                  <h3 className='font-["Kajiro"] text-5xl text-violet-500'>{genre}</h3>
-                </div>
-              ))}
-
-               {!genres && <>
-               
-               <div className="font-['Neue_Montreal'] text-white ">
-               No genres found 
-
-               </div>
-               
-               
-               
-               </>}
-
-
-
-            </div>
-          </div>
         </div>
-        <div className="w-[35vw] ml-[7rem]">
-          <h1 className='text-center text-yellow-500 underline w-[30vw] text-7xl m-4 cursor-pointer text-orange-500 font-["Summer_Loving"]  '>
-            Overview
-          </h1>
-          <h3 className="text-justify text-yellow-300 ">{selectedMovie?.overview}</h3>
-          <div className=" w-full h-[25vw] mt-5 ">
-           {selectedMovie?.backdrop_path && <>
-            <img
-              src={IMG_CDN + selectedMovie?.backdrop_path}
-              className="object-cover w-full h-full rounded-md"
-              alt="not loaded"
-            />
-           </>} 
+
+        <div className="second m-[4vw]   w-[50%] h-[39vw] p-[1vw] mt-0">
+          <div className="">
+            <h3 className="text-justify text-xl font-bold text-white ">
+              {selectedMovie?.overview}
+            </h3>
+          </div>
+
+          <div className=" flex m-[1vw] gap-[1vw] ml-0">
+            <h3 className="font-bold text-orange-400 text-xl">
+              Release Date :
+            </h3>
+            {
+              <h3 className="text-xl">
+                {selectedMovie?.release_date.split("-").reverse().join("-")}
+              </h3>
+            }
+          </div>
+
+          <div
+            className="px-3 py-2 w-[10vw]  bg-red-500 text-center text-xl rounded-md cursor-pointer"
+            onClick={handleWatchTrailer}
+          >
+            Watch Trailer
           </div>
         </div>
       </div>
+             <div>
+            <CastList   movieId={movieId}/>
+              
 
+
+             </div>
       <div className="overflow-x-scroll scrollbar-hide  mt-5">
         <MovieList title={"Similar Movies"} movies={similarMovies} />
       </div>

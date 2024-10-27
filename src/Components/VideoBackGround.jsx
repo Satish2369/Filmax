@@ -26,7 +26,7 @@ useMovieTrailer(movieId);
     <div className='w-full h-[92vh] relative flex items-center justify-center overflow-hidden '>
       {   trailerVideo?.key  && (  
          <iframe 
-      className='aspect-square w-full'
+      className='aspect-square w-full ]'
    
       src={"https://www.youtube.com/embed/" + trailerVideo?.key   +"?&autoplay=1&mute=1&controls=0&showinfo=0&rel=0&modestbranding=1&playsinline=1&loop=1&playlist=" +
       trailerVideo?.key }
