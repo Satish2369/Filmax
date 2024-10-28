@@ -7,10 +7,12 @@ import { useParams, useNavigate } from "react-router-dom";
 import { IMG_CDN } from "../utils/constants";
 import MovieList from "./MovieList";
 import CastList from "./CastList";
+import { IoChevronBackSharp } from "react-icons/io5";
+
 
 const MovieDetails = () => {
   const movies = useSelector((store) => store.movies);
-
+  
   const { movieId } = useParams();
   const navigate = useNavigate();
   const [similarMovies, setSimilarMovies] = useState([]);
@@ -68,14 +70,18 @@ const MovieDetails = () => {
     navigate(`/movie/${movieId}/watchTrailer`);
   };
 
-
+ const handleBackButton = ()=>{
+  navigate(-1);
+ }
 
   return (
     <div className=" bg-black  text-white w-screen min-h-screen p-[2vw] font-['Neue_Montreal']">
-      <div className="text-center m-0">
-        <h1 className='text-6xl  mb-7 font-["Summer_Loving"] text-red-600 underline'>
+      <div className="flex justify-between m-0">
+       <div className="flex items-center bg-red-600 h-[2vw] w-[8vw]  rounded-md justify-center cursor-pointer" onClick={handleBackButton} ><IoChevronBackSharp size={15}/> Back</div>
+       <div> <h1 className='text-6xl  mb-7 font-["Summer_Loving"] text-center text-red-600 underline'>
           {selectedMovie?.title}
-        </h1>
+        </h1></div>
+       <div></div>
       </div>
       <div className="flex">
         <div className="first ml-[3vw] w-[32%] h-[39vw]   rounded-md">

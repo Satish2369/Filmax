@@ -1,5 +1,5 @@
 
-import { LOGO } from "../utils/constants";
+import Logo from "../utils/Logo.png"
 
 
 const SplashScreen = ()=>{
@@ -7,8 +7,8 @@ const SplashScreen = ()=>{
 
    return (
                
-            <div className="w-screen h-screen   flex justify-center   bg-black absolute z-50">
-                    <h1 className="font-['Summer_Loving'] text-[17vw] pt-[8vw] text-red-800">filmax</h1>
+            <div className="w-screen h-screen   flex justify-center items-center  bg-black absolute z-50">
+                    <img src={Logo} alt=""  className="h-[20vw] w-[30vw]"/>
             </div>
 
             

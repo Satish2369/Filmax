@@ -7,29 +7,19 @@ import { useEffect } from 'react';
 import { onAuthStateChanged } from 'firebase/auth';
 import { useDispatch } from 'react-redux';
 import { addUser,removeUser } from '../utils/userSlice';
-import { LOGO, SUPPORTED_LANGUAGES } from '../utils/constants';
-
+import {  SUPPORTED_LANGUAGES } from '../utils/constants';
 import { toggleGptSearchView } from '../utils/gptSlice';
 import { changeLanguage } from '../utils/configSlice';
-
-
-
-
-
+import Logo from '../utils/Logo.png'; // Adjust the path based on your folder structure
+ 
 
 
 const Header= () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   
-
-
-
-
   const user = useSelector(store => store.user);
   const showGptSearch = useSelector((store)=> store.gpt.showGptSearch)
-
-
 
 const handleSignOut =()=>{
  
@@ -90,8 +80,8 @@ const handleLanguageChange =(e)=>{
 
 
   return (
-    <div className='w-full absolute px-8 py-2  bg-gradient-to-b from-black z-30 flex justify-between  '>
-     <img src={LOGO} className='h-18 w-44 ' alt="logo" />
+    <div className='w-full fixed px-8 py-2  bg-gradient-to-b from-black z-30 flex justify-between font-["Neue_Montreal"]  '>
+     <img src={Logo} className='h-18 w-44 ' alt="logo" />
 
 
 { user && (
@@ -106,7 +96,7 @@ const handleLanguageChange =(e)=>{
 
 </>)}
 
-<button className='p-2 m-1 rounded-md text-white bg-purple-600' onClick={handleGptSearchClick}>{showGptSearch ? "HomePage" :"GPT Search"}</button>
+<button className='p-2 m-1 rounded-md text-white bg-red-600' onClick={handleGptSearchClick}>{showGptSearch ? "HomePage" :"GPT Search"}</button>
 
 
 
