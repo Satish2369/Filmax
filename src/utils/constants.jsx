@@ -1,6 +1,6 @@
  export const LOGO = "https://brandemia.org/sites/default/files/inline/images/logo-2.jpg"; //older logo 
 
-export const USER_AVATAR ="https://prompti.ai/wp-content/uploads/2023/07/pcboi2.png"
+export const USER_AVATAR ="https://png.pngtree.com/png-clipart/20230927/original/pngtree-man-avatar-image-for-profile-png-image_13001882.png"
 
 
 

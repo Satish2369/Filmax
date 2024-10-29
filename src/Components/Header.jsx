@@ -88,11 +88,11 @@ const Header = () => {
             {showGptSearch ? "HomePage" : "GPT Search"}
           </button>
 
-          <img
+          {/* <img
             className="h-10 w-14 m-4 "
             src={user.photoURL}
             alt="user photo"
-          />
+          /> */}
 
           <button
             className="bg-red-700 text-white px-[7px] border-zinc-800  font-bold py-2  rounded-md  md:px-4  "
