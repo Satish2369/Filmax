@@ -10,6 +10,9 @@ body {
     display: none; /* Hide scrollbar in webkit browsers */
   }
 
+*{
+  font-family: "Neue MOntreal";
+}
   
 @font-face {
   font-family: "Summer_Loving";

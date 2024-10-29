@@ -67,9 +67,9 @@ dispatch(addGptMovieResult({movieNames:gptMovies,movieResults:tmdbResults}))
 
 
 
-      <form className='   p-2  font-["Neue_Montreal"]' onSubmit={(e)=> e.preventDefault()}    >
+      <form className=' font-["Neue_Montreal"] md:p-2' onSubmit={(e)=> e.preventDefault()}    >
       
-      <input  ref={SearchText} type="text" className='  p-2 border-2 border-black m-2 outline-blue-500 w-[30vw] px-4 tracking-extra-wide' placeholder={lang[langKey].GptSearchPlaceholder}/>
+      <input  ref={SearchText} type="text" className='mt-[27vw]  p-2 border-2 border-black m-2 outline-blue-500 w-[67vw] px-2    md:mt-0 md:w-[30vw]  md:px-4' placeholder={lang[langKey].GptSearchPlaceholder}/>
 
 
 

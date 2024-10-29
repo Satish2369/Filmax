@@ -80,12 +80,12 @@ const Login = () => {
     };
 
     return (
-        <div className='bg-black w-full h-full absolute'>
+        <div className='bg-black w-screen h-screen overflow-hidden absolute'>
             <Header />
             {showSplash ? (
                 <SplashScreen /> // Show splash screen when `showSplash` is true
             ) : (
-                <form onSubmit={(e) => e.preventDefault()} className='absolute py-14 px-16 m-12 rounded-md bg-zinc-600 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-col text-white text-xl bg-opacity-90 border-zinc-200'>
+                <form onSubmit={(e) => e.preventDefault()} className='absolute py-14 px-8 m-3  rounded-md bg-zinc-600 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-col text-white text-xl bg-opacity-90 border-zinc-200 md:px-16 md:m-12'>
                     <h1 className='font-bold text-3xl py-4 mx-1 capitalize mb-3'>
                         {isSignInForm ? "Sign In" : "Sign Up"}
                     </h1>
