@@ -81,7 +81,7 @@ const MovieDetails = () => {
         </div>
         <div>
           
-          <h1 className='text-3xl  mb-7 font-["Summer_Loving"] text-center text-red-600 underline pt-[2vw] md:text-6xl md:pt-0'>
+          <h1 className='text-2xl  mb-7 font-["Summer_Loving"] text-center text-red-600 underline pt-[3vw] md:text-6xl md:pt-0'>
             {selectedMovie?.title}
           </h1>
         </div>
