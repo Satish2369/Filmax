@@ -8,6 +8,7 @@ import { IMG_CDN } from "../utils/constants";
 import MovieList from "./MovieList";
 import CastList from "./CastList";
 import { IoChevronBackSharp } from "react-icons/io5";
+import CrewList from "./CrewList";
 
 const MovieDetails = () => {
   const movies = useSelector((store) => store.movies);
@@ -126,9 +127,13 @@ const MovieDetails = () => {
           </div>
         </div>
       </div>
-      <div className="mt-[55vw]  md:mt-0">
+      <div className="mt-[55vw]  md:mt-[5vw]">
         <CastList movieId={movieId} />
       </div>
+      <div className="mt-[55vw]  md:mt-[5vw]">
+        <CrewList movieId={movieId} />
+      </div>
+
       <div className="overflow-x-scroll scrollbar-hide  md:mt-5">
         <MovieList title={"Similar Movies"} movies={similarMovies} />
       </div>

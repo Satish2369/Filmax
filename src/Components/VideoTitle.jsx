@@ -19,8 +19,8 @@ const VideoTitle = (props) => {
   return (
     <div className='pt-36 mt-[12vw] w-full aspect-video h-[100vh]  pl-4 font-["Neue_Montreal"] absolute text-white bg-gradient-to-r from-black  z-20 md:pl-11  md:mt-0'>
 
-   <h1 className='text-2xl text-red-600  font-["Summer_Loving"] mt-[6vw] ml-[15vw]  md:text-7xl md:mt-0 md:ml-0'>{props.title}</h1>
-    <h1 className='py-6 w-[50vw] text-justify  tracking-tighter leading-tight md:w-1/5 md:tracking-wide hidden md:block md:leading-normal '>{props.overview}</h1>
+   <h1 className='text-2xl text-red-600  font-["Summer_Loving"] mt-[6vw] ml-[13vw]  md:text-7xl md:mt-0 md:ml-0'>{props.title}</h1>
+    <h1 className='py-4 w-[50vw] text-justify  tracking-tighter leading-tight md:w-[24vw] md:tracking-wide hidden md:block md:leading-normal '>{props.overview}</h1>
 
     <div className='flex gap-5 absolute top-[110vw] md:relative ml-[10vw]  md:top-0 md:ml-0'>
       <button className='bg-white  px-7  text-black  py-2 flex gap-2 items-center rounded-lg hover:bg-opacity-80 md:px-10' onClick={handlePlay}> <FaPlay /> Play</button>

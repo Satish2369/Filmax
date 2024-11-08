@@ -1,13 +1,13 @@
 import React from "react";
 import { IMG_CDN } from "../utils/constants";
 
-const CastCard = ({ image, name, char }) => {
+const CrewCard = ({ image, name, job }) => {
   return (
     <div className="flex flex-col items-center p-2">
        
       {image && (
         <div>
-          <div className="w-[44vw] h-[53vw] rounded-full overflow-hidden md:w-[15vw] md:h-[20vw]">
+          <div className="w-[40vw] h-[50vw] rounded-full overflow-hidden md:w-[15vw] md:h-[20vw]">
             <img
               src={IMG_CDN + image}
               className="object-cover object-top w-full h-full "
@@ -15,11 +15,11 @@ const CastCard = ({ image, name, char }) => {
             />
           </div>
           <p className=" mt-2  text-center text-red-600 font-bold text-xl">{name}</p>
-          <p className="text-gray-400 text-center">Character  : {char}</p>
+          <p className="text-gray-400 text-center">job  : {job}</p>
         </div>
       )}
     </div>
   );
 };
 
-export default CastCard;
+export default CrewCard;
