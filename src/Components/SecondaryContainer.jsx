@@ -19,7 +19,7 @@ const movies = useSelector(store => store.movies)
     movies.nowPlayingMovies && (
     <div className=' bg-black font-["Neue_Montreal"]'>   
       
-      <div className='-mt-32 relative z-20'>
+      <div className='-mt-28 relative z-20'>
       <MovieList title={"Now Playing"}  movies={movies?.nowPlayingMovies}  />
       </div>
        

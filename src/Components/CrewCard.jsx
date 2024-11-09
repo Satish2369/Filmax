@@ -15,7 +15,7 @@ const CrewCard = ({ image, name, job }) => {
             />
           </div>
           <p className=" mt-2  text-center text-red-600 font-bold text-xl">{name}</p>
-          <p className="text-gray-400 text-center">job  : {job}</p>
+          <p className="text-gray-400 text-center ">Job  : {job}</p>
         </div>
       )}
     </div>

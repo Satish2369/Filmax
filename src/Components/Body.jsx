@@ -4,6 +4,7 @@ import Browse from  './Browse'
 import {createBrowserRouter, RouterProvider} from "react-router-dom"
 import MovieDetails from './MovieDetails'
 import WatchTrailer from './WatchTrailer'
+import Favourites from './Favourites'
 const Body = () => {
 
     
@@ -25,6 +26,9 @@ const Body = () => {
       {
         path: "/movie/:movieId/watchTrailer", 
         element: <WatchTrailer />
+      },{
+        path:"/favourites",
+        element:<Favourites/>
       }
   
 ]);

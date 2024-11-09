@@ -10,9 +10,9 @@ const {movieResults,movieNames} = useSelector(store => store.gpt)
 
 const movies = useSelector(store => store.movies)
 
-console.log(movieNames)
+// console.log(movieNames)
 
-console.log(movieResults)
+// console.log(movieResults)
 
 if(!movieNames) return null;
 

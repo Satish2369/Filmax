@@ -16,11 +16,17 @@ const CrewList = ({ movieId }) => {
     );
     const data = await response.json();
     console.log(data);
-    setCrew(data.crew); // Change to crew
+    
+    const uniqueCrew = data.crew.filter((member)=>member?.profile_path !== null).
+    filter((member, index, self) =>
+        index === self.findIndex((m) => m.id === member.id)
+      );
+      setCrew(uniqueCrew)
   };
 
+
   return (
-    <div className="bg-black w-[screen] h-fit">
+    <div className="bg-black w-screen h-fit">
       <div className="text-5xl ml-[2vw] mb-[2vw] mt-[1vw] font-['Neue_Montreal'] text-red-500 md:text-6xl">
         Crew
       </div>
@@ -28,7 +34,7 @@ const CrewList = ({ movieId }) => {
         {crew &&
           crew.map((member) => (
             <CrewCard
-              key={member.id} // Unique key for each card
+              key={member.id} 
               image={member?.profile_path}
               name={member?.name}
               job={member?.job}
