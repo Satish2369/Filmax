@@ -9,21 +9,13 @@ import SplashScreen from './SplashScreen';
 
 const VideoBackGround = ({movieId}) => {
   
-const trailerVideo = useSelector(store=> store.movies?.trailerVideo)
+const trailerVideo = useSelector(store=> store?.movies?.trailerVideo)
 
 useMovieTrailer(movieId);
 
 
-
-
-
-
-
-
-
-
   return (
-    <div className='w-full h-[92vh] relative flex items-center justify-center overflow-hidden bg-black '>
+    <div className='w-full h-[92vh] relative flex items-center justify-center overflow-hidden bg-black  '>
       {   trailerVideo?.key  && (  
          <iframe 
       className='aspect-square w-full ]'

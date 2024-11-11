@@ -9,14 +9,20 @@ initialState:{
    watchList:[]
 },
 reducers:{
-    addToWatchList:(state,action)=>{
-        state.watchList.push(action.payload);
-    },
+    addToWatchList: (state, action) => {
+        const movie = action.payload;
+        
+        if (!state.watchList.some(item => item.id === movie.id)) {
+          state.watchList.push(movie);
+        }
+      },
+  
     clearWatchList:(state)=>{
         state.watchList = []
     },
     removeWatchList:(state,action)=>{
-        // logic later
+        const id = action.payload.id;
+     state.watchList =   state.watchList.filter((movie)=> movie.id !== id)
     }
 }
 

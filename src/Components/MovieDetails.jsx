@@ -48,7 +48,7 @@ const MovieDetails = () => {
         const data = await response.json();
 
         setSelectedMovie(data);
-        setGenres(data.genres.map((genre) => genre.name));
+        setGenres(data.genres);
       };
 
       fetchMovieDetails();
@@ -133,10 +133,18 @@ const MovieDetails = () => {
               Release Date :
             </h3>
             {
-              <h3 className="text-xl">
+              <h3 className="text-xl text-gray-300">
                 {selectedMovie?.release_date.split("-").reverse().join("-")}
               </h3>
             }
+          </div>
+
+          <div className="flex gap-2 my-[1vw]">
+
+                  <div className="text-xl font-bold text-orange-400 ">Genres:</div>
+                  <div className="text-xl flex gap-2 text-gray-300">{genres.map((genre)=> <div key={genre?.id} className="">{genre?.name}</div>)}</div>
+
+
           </div>
           <div className="flex">
             <div

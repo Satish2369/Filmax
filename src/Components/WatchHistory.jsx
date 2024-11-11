@@ -3,19 +3,29 @@ import { useNavigate, Link } from "react-router-dom";
 import { IoChevronBackSharp } from "react-icons/io5";
 import { GoDotFill } from "react-icons/go";
 import { useDispatch, useSelector } from "react-redux";
-
+import { RxCross2 } from "react-icons/rx";
+import { clearWatchList, removeWatchList } from "../utils/watchSlice";
 const WatchHistory = () => {
   const navigate = useNavigate();
-  const watchList = useSelector((store) => store?.watch?.watchList || []);
+  const dispatch = useDispatch()
+  const watchList = useSelector((store) => store?.watch?.watchList );
 
 
   const handleBackButton = () => {
     navigate(-1);
   };
 
-  const handleHomePageClick = () => {
-    navigate("/browse");
+  const handleClearHistory = () => {
+     dispatch(clearWatchList());
   };
+
+ const handleRemoveHistory = (id,title)=>{
+    dispatch(removeWatchList({id,title}))
+    console.log("runned")
+
+ }
+
+
 
   return (
     <div className="bg-black text-white w-screen min-h-screen p-6">
@@ -26,32 +36,58 @@ const WatchHistory = () => {
         >
           <IoChevronBackSharp size={15} /> Back
         </div>
-        <div className="text-red-600 text-4xl cursor-pointer">Watch List</div>
+        <div className="text-red-600 text-4xl cursor-pointer">Watch History</div>
         <div
           className="flex items-center bg-red-600 h-[8vw] w-[20vw] px-3 rounded-md justify-center cursor-pointer md:w-[8vw] md:h-[2vw]"
-          onClick={handleHomePageClick}
+          onClick={handleClearHistory}
         >
-          Home page
+          Clear History
         </div>
       </div>
 
       <div className="flex flex-col justify-center items-center mt-[5vw]">
-        {
+        { watchList.length >0 &&
           watchList.map((movie) => (
             <div
               key={movie?.id}
-              className="bg-yellow-400 h-[5vw] p-6 w-3/6 flex items-center m-2 rounded-md shadow-lg cursor-pointer"
+              className="bg-yellow-400 h-[5vw] p-6 w-4/6 flex items-center m-2 rounded-md shadow-lg cursor-pointer box-border"
             >
-              <Link to={`/movie/${movie?.id}/watchTrailer`} className="block">
-                <div className="text-3xl flex gap-[2vw] justify-center items-center text-red-700 font-['Neue Montreal']">
+             
+                <div className="text-3xl flex gap-[2vw] justify-between items-center text-red-700 font-['Neue Montreal']">
+                  <div className="text-3xl flex gap-[2vw] justify-center items-center text-red-700 font-['Neue Montreal']">
                   <div>
                     <GoDotFill />
                   </div>
-                  <div>{movie?.title}</div>
+                  <Link to={`/movie/${movie?.id}/watchTrailer`} className="block"><div>{movie?.title}</div></Link>
+                  <div className="ml-[28vw] p-2 rounded-full bg-black" onClick={() =>handleRemoveHistory(movie?.id,movie?.title)}><RxCross2 /></div>
+                  </div>
+
+                 
                 </div>
-              </Link>
+              
             </div>
           ))}
+          {
+
+     watchList.length ===0 && (
+      <div className="text-zinc-400 text-2xl mt-[10vw]">"Your watch list is empty. Browse movies and start watching trailers!"</div>
+
+     )
+
+
+
+
+          }
+           
+
+
+
+
+
+
+
+
+
       </div>
     </div>
   );
