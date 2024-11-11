@@ -4,8 +4,8 @@ import moviesReducer from './moviesSlice'
 import gptSliceReducer from "./gptSlice"
 
 import configReducer  from "./configSlice"
-import favourite from "./favouriteSlice"
 import favouriteReducer from "./favouriteSlice"
+import watchReducer from "./watchSlice"
 
 const appStore = configureStore(
 
@@ -17,7 +17,8 @@ user:userReducer,
 movies:moviesReducer,
 gpt:gptSliceReducer,
 config:configReducer,
-favourite:favouriteReducer
+favourite:favouriteReducer,
+watch:watchReducer
 }
 
 

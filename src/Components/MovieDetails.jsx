@@ -11,6 +11,7 @@ import { IoChevronBackSharp } from "react-icons/io5";
 import CrewList from "./CrewList";
 import { addToFavourites } from "../utils/favouriteSlice";
 import { removeFromFavourites } from "../utils/favouriteSlice";
+import { addToWatchList } from "../utils/watchSlice";
 const MovieDetails = () => {
   const movies = useSelector((store) => store.movies);
   const dispatch = useDispatch();
@@ -66,8 +67,11 @@ const MovieDetails = () => {
     fetchSimilarMovies();
   }, [movieId, nowPlaying, popular, upcoming, topRated]);
 
-  const handleWatchTrailer = () => {
+  const handleWatchTrailer = (id,title) => {
+ 
     navigate(`/movie/${movieId}/watchTrailer`);
+    dispatch(addToWatchList({id,title}))
+
   };
 
   const handleBackButton = () => {
@@ -86,9 +90,7 @@ const MovieDetails = () => {
   };
 
 
-  const handleFavouritesRoute =()=>{
-    navigate('/favourites')
-  }
+ 
 
   return (
     <div className=" bg-black  text-white w-screen min-h-screen p-[2vw] font-['Neue_Montreal']">
@@ -104,12 +106,10 @@ const MovieDetails = () => {
             {selectedMovie?.title}
           </h1>
         </div>
-        <div className=" bg-red-600  h-[3vw] flex justify-center items-center text-xl rounded-md cursor-pointer md:w-[12vw] md:mt-0" onClick={handleFavouritesRoute}>
-              Favourites
-            </div>
+        <div></div>
       </div>
       <div className="flex flex-col md:flex-row gap-[2vw] md:gap-0">
-        <div className="first  w-[100%] h-[100%]   rounded-md  md:h-[39vw] md:w-[32%] md:ml-[3vw]">
+        <div className="first  w-[100%] h-[100%]   rounded-md  md:h-[44vw] md:w-[32%] md:ml-[3vw]">
           {selectedMovie?.backdrop_path && (
             <>
               <img
@@ -141,7 +141,7 @@ const MovieDetails = () => {
           <div className="flex">
             <div
               className=" flex justify-center items-center h-[3vw] w-[40vw] mt-[4vw] bg-red-600  text-xl rounded-md cursor-pointer md:w-[10vw] md:mt-0 "
-              onClick={handleWatchTrailer}
+              onClick={() => handleWatchTrailer(selectedMovie?.id,selectedMovie?.title)}
             >
               Watch Trailer
             </div>

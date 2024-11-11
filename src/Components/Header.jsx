@@ -59,6 +59,13 @@ const Header = () => {
     // console.log(e.target.value)
     dispatch(changeLanguage(e.target.value));
   };
+  
+  const handleFavouritesRoute =()=>{
+    navigate('/favourites')
+  }
+  const handleWatchHistoryRoute =()=>{
+    navigate('/watchHistory')
+  }
 
   return (
     <div className='w-full fixed    bg-gradient-to-b from-black z-30 flex flex-col  justify-between font-["Neue_Montreal"]  md:flex-row  md:px-8   md:py-2'>
@@ -69,7 +76,7 @@ const Header = () => {
           {showGptSearch && (
             <>
               <select
-                className=" py-2  bg-zinc-400 rounded-md  md:m-2  md:px-2 text-white"
+                className=" py-1 md:mr-8   rounded-md  md:m-2  md:px-2 text-zinc-400 hover:text-red-600"
                 onChange={handleLanguageChange}
               >
                 {SUPPORTED_LANGUAGES.map((lang, index) => (
@@ -82,7 +89,7 @@ const Header = () => {
           )}
 
           <button
-            className="p-2 m-1 rounded-md text-white bg-red-600 ml-[8vw] mr-[5vw] md:ml-0 md:mr-2"
+            className="p-2 m-1 rounded-md text-zinc-300  text-xl ml-[8vw] mr-[5vw] md:ml-0 md:mr-2 hover:text-red-600"
             onClick={handleGptSearchClick}
           >
             {showGptSearch ? "HomePage" : "GPT Search"}
@@ -93,9 +100,14 @@ const Header = () => {
             src={user.photoURL}
             alt="user photo"
           /> */}
-
+            <div className="   h-[2.6vw]  text-zinc-300 flex justify-center items-center text-xl rounded-md cursor-pointer md:w-[11vw] md:mt-0 md:mx-3 hover:text-red-600" onClick={handleFavouritesRoute}>
+              Favourite Movies
+            </div>
+            <div className="   h-[2.6vw]  text-zinc-300 flex justify-center items-center text-xl rounded-md cursor-pointer md:w-[11vw] md:mt-0 md:mx-3 hover:text-red-600" onClick={handleWatchHistoryRoute}>
+              Watch History
+            </div>
           <button
-            className="bg-red-700 text-white px-[7px] border-zinc-800  font-bold py-2  rounded-md  md:px-4  "
+            className=" text-zinc-300 px-[7px] text-xl  py-2  rounded-md  md:px-4  hover:text-red-600 "
             onClick={handleSignOut}
           >
             Sign Out

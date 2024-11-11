@@ -1,10 +1,13 @@
 import React, { useState } from 'react';
 import { FaPlay } from "react-icons/fa";
 import { MdOutlineInfo } from "react-icons/md";
+import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
+import { addToWatchList } from '../utils/watchSlice';
 
 const VideoTitle = (props) => {
    const navigate = useNavigate();
+   const dispatch = useDispatch();
    const [isExpanded, setIsExpanded] = useState(false);
 
    const truncateText = (text) => {
@@ -15,7 +18,9 @@ const VideoTitle = (props) => {
    const displayText = isExpanded ? props?.overview : truncateText(props?.overview);
 
    const handlePlay = () => {
-     navigate(`/movie/${props.movieId}/watchTrailer`);
+     navigate(`/movie/${props?.movieId}/watchTrailer`);
+     dispatch(addToWatchList({ id: props?.movieId, title: props?.title }));
+
    }
 
    const handleInfo = () => {

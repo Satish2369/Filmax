@@ -7,7 +7,7 @@ const CastCard = ({ image, name, char }) => {
        
       {image && (
         <div>
-          <div className="w-[44vw] h-[53vw] rounded-full overflow-hidden md:w-[15vw] md:h-[20vw] mb-2">
+          <div className="w-[44vw] h-[53vw]  overflow-hidden md:w-[15vw] md:h-[20vw] mb-2">
             <img
               src={IMG_CDN + image}
               className="object-cover object-top w-full h-full "

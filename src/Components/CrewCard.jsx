@@ -3,11 +3,11 @@ import { IMG_CDN } from "../utils/constants";
 
 const CrewCard = ({ image, name, job }) => {
   return (
-    <div className="flex flex-col items-center p-2">
+    <div className="flex flex-col items-center p-2 mb-[2vw]">
        
       {image && (
         <div>
-          <div className="w-[40vw] h-[50vw] rounded-full overflow-hidden md:w-[15vw] md:h-[20vw]">
+          <div className="w-[40vw] h-[50vw]  overflow-hidden md:w-[15vw] md:h-[20vw]">
             <img
               src={IMG_CDN + image}
               className="object-cover object-top w-full h-full "
