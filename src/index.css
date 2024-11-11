@@ -11,11 +11,11 @@ body {
   }
 
 *{
-  font-family: "Neue Montreal";
+  font-family: "Neue_Montreal";
 }
 
 @font-face {
-  font-family: "Neue Montreal";
+  font-family: "Neue_Montreal";
   src: url("NeueMontreal.ttf");
 }
   
