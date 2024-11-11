@@ -31,7 +31,7 @@ const VideoTitle = (props) => {
      <div className='pt-36 mt-[12vw] w-full aspect-video h-[100vh] pl-4 font-["Neue_Montreal"] absolute text-white bg-gradient-to-r from-black z-20 md:pl-11 md:mt-0'>
        <h1 className='text-2xl text-red-600 font-["Summer_Loving"] mt-[6vw] ml-[13vw] md:text-7xl md:mt-0 md:ml-0'>{props.title}</h1>
        
-       <h1 className='py-4 w-[50vw] text-justify tracking-tighter leading-tight md:w-[24vw] md:tracking-wide hidden md:block md:leading-normal'>
+       <h1 className='py-4 w-[50vw] text-justify tracking-tighter font-["Neue_Montreal"] leading-tight md:w-[24vw] md:tracking-wide hidden md:block md:leading-normal'>
          {displayText}
          {props?.overview.split(' ').length > 60 && (
            <button 

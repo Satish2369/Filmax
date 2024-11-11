@@ -3,11 +3,11 @@
 @tailwind utilities;
 
 body {
-    overflow-x: hidden; /* Prevent horizontal scrolling on the whole body */
+    overflow-x: hidden;
   }
   
   .scrollbar-hide::-webkit-scrollbar {
-    display: none; /* Hide scrollbar in webkit browsers */
+    display: none; 
   }
 
 *{

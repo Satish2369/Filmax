@@ -89,7 +89,7 @@ const Header = () => {
           )}
 
           <button
-            className="p-2 m-1 rounded-md text-zinc-300  text-xl ml-[8vw] mr-[5vw] md:ml-0 md:mr-2 hover:text-red-600"
+            className="p-2 m-1 rounded-md text-zinc-300  text-xl ml-[8vw] font-['Neue_Montreal'] mr-[5vw] md:ml-0 md:mr-2 hover:text-red-600"
             onClick={handleGptSearchClick}
           >
             {showGptSearch ? "HomePage" : "GPT Search"}
@@ -100,10 +100,10 @@ const Header = () => {
             src={user.photoURL}
             alt="user photo"
           /> */}
-            <div className="   h-[2.6vw]  text-zinc-300 flex justify-center items-center text-xl rounded-md cursor-pointer md:w-[11vw] md:mt-0 md:mx-3 hover:text-red-600" onClick={handleFavouritesRoute}>
+            <div className="   h-[2.6vw]  text-zinc-300 flex justify-center  items-center text-xl font-['Neue_Montreal'] rounded-md cursor-pointer md:w-[11vw] md:mt-0 md:mx-3 hover:text-red-600" onClick={handleFavouritesRoute}>
               Favourite Movies
             </div>
-            <div className="   h-[2.6vw]  text-zinc-300 flex justify-center items-center text-xl rounded-md cursor-pointer md:w-[11vw] md:mt-0 md:mx-3 hover:text-red-600" onClick={handleWatchHistoryRoute}>
+            <div className="   h-[2.6vw]  text-zinc-300 flex justify-center items-center text-xl font-['Neue_Montreal'] rounded-md cursor-pointer md:w-[11vw] md:mt-0 md:mx-3 hover:text-red-600" onClick={handleWatchHistoryRoute}>
               Watch History
             </div>
           <button

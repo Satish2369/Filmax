@@ -123,30 +123,30 @@ const MovieDetails = () => {
 
         <div className="second    w-[100%] h-fit p-[1vw] mt-0 md:w-[50%] md:m-[4vw] ">
           <div className="">
-            <h3 className="text-justify text-xl font-bold text-white  md:">
+            <h3 className="text-justify text-xl font-bold text-white font-['Neue_Montreal'] md:">
               {selectedMovie?.overview}
             </h3>
           </div>
 
           <div className=" flex m-[1vw] gap-[1vw] ml-0">
-            <h3 className="font-bold text-orange-400 text-xl">
+            <h3 className="font-bold text-orange-400 text-xl font-['Neue_Montreal']">
               Release Date :
             </h3>
             {
-              <h3 className="text-xl text-gray-300">
+              <h3 className="text-xl text-gray-300 font-['Neue_Montreal']">
                 {selectedMovie?.release_date.split("-").reverse().join("-")}
               </h3>
             }
           </div>
 
-          <div className="flex gap-2 my-[1vw]">
+          <div className="flex gap-2 my-[1vw] font-['Neue_Montreal']">
 
                   <div className="text-xl font-bold text-orange-400 ">Genres:</div>
                   <div className="text-xl flex gap-2 text-gray-300">{genres.map((genre)=> <div key={genre?.id} className="">{genre?.name}</div>)}</div>
 
 
           </div>
-          <div className="flex">
+          <div className="flex font-['Neue_Montreal']">
             <div
               className=" flex justify-center items-center h-[3vw] w-[40vw] mt-[4vw] bg-red-600  text-xl rounded-md cursor-pointer md:w-[10vw] md:mt-0 "
               onClick={() => handleWatchTrailer(selectedMovie?.id,selectedMovie?.title)}
@@ -165,14 +165,14 @@ const MovieDetails = () => {
           </div>
         </div>
       </div>
-      <div className="mt-[55vw]  md:mt-[5vw]">
+      <div className="mt-[55vw]  md:mt-[5vw] font-['Neue_Montreal']">
         <CastList movieId={movieId} />
       </div>
-      <div className="mt-[40vw]  md:mt-[5vw]">
+      <div className="mt-[40vw]  md:mt-[5vw ] font-['Neue_Montreal']">
         <CrewList movieId={movieId} />
       </div>
 
-      <div className="overflow-x-scroll scrollbar-hide  md:mt-5">
+      <div className="overflow-x-scroll scrollbar-hide  md:mt-5 font-['Neue_Montreal']">
         <MovieList title={"Similar Movies"} movies={similarMovies} />
       </div>
     </div>
