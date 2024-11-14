@@ -26,7 +26,7 @@ const {original_title,overview,id} = mainMovie;
 
   return (
 
-    <div>
+    <div className='bg-black min-h-fit w-screen'>
 
         <VideoTitle  title={original_title}  overview = {overview} movieId={id}  />
         <VideoBackGround  movieId={id} />

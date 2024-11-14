@@ -29,10 +29,11 @@ return (
 
 
 { showGptSearch  ? ( <GPTSearchPage/>  ): (
-  <>
+  <div className="bg-black">
     <MainContainer/>
    <SecondaryContainer/>  
-</>        
+   
+</div>        
 )
  } 
 

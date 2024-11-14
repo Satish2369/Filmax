@@ -1,7 +1,7 @@
 
 import { useSelector } from 'react-redux';
 import MovieList from './MovieList'
-import Shimmer from './Shimmer'
+
 import { useState,useEffect } from 'react';
 
 const GptMovieSuggestion = () => {

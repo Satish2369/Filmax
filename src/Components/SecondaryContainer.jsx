@@ -1,45 +1,46 @@
-import React from 'react'
-
-import { useSelector } from 'react-redux'
-import MovieList from './MovieList'
-
-
-
-
-
+import React from 'react';
+import { useSelector } from 'react-redux';
+import MovieList from './MovieList';
+import ShimmerList from './ShimmerList';
 
 const SecondaryContainer = () => {
-
-
-const movies = useSelector(store => store.movies)
-
-  // console.log(movies.nowPlayingMovies)
+  const movies = useSelector((store) => store.movies);
+  // const movies = [];
   return (
+    <div>
+      {movies?.nowPlayingMovies &&
+      movies?.upcoming &&
+      movies?.topRated &&
+      movies?.popularMovies ? (
+        <div className='bg-black font-["Neue_Montreal"]'>
+          {movies.nowPlayingMovies.length > 0 && (
+            <div className='-mt-28 relative z-20'>
+              <MovieList title="Now Playing" movies={movies.nowPlayingMovies} />
+            </div>
+          )}
+          {movies.upcoming.length > 0 && (
+            <MovieList title="Upcoming" movies={movies.upcoming} />
+          )}
+          {movies.topRated.length > 0 && (
+            <MovieList title="Top Rated" movies={movies.topRated} />
+          )}
+          {movies.popularMovies.length > 0 && (
+            <MovieList title="Popular" movies={movies.popularMovies} />
+          )}
+        </div>
+      ) : (
+        <>
+          <div className='-mt-28 relative z-20'>
+            <ShimmerList />
+            <ShimmerList />
+          <ShimmerList />
+          <ShimmerList />
+          </div>
 
-    movies.nowPlayingMovies && (
-    <div className=' bg-black font-["Neue_Montreal"]'>   
-      
-      <div className='-mt-28 relative z-20'>
-      <MovieList title={"Now Playing"}  movies={movies?.nowPlayingMovies}  />
-      </div>
-       
-      <MovieList title={"Upcoming"}  movies={movies.upcoming}  />
-      <MovieList title={"Top rated"}  movies={movies.topRated}  />
-      <MovieList title={"Popular"}  movies={movies?.popularMovies}  />
-   
- 
-
-
-     
-
-
-
-
-
-
+        </>
+      )}
     </div>
-    )
-  )
-}
+  );
+};
 
-export default SecondaryContainer
+export default SecondaryContainer;
