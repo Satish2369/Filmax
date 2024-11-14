@@ -31,14 +31,14 @@ const WatchHistory = () => {
     <div className="bg-black text-white w-screen min-h-screen p-6">
       <div className="flex justify-between">
         <div
-          className="flex items-center bg-red-600 h-[8vw] w-[20vw] px-3 rounded-md justify-center cursor-pointer md:w-[8vw] md:h-[2vw]"
+          className="flex items-center bg-red-600 h-[8vw] w-[20vw] px-3 font-['Neue_Montreal'] rounded-md justify-center cursor-pointer md:w-[8vw] md:h-[2vw]"
           onClick={handleBackButton}
         >
           <IoChevronBackSharp size={15} /> Back
         </div>
-        <div className="text-red-600 text-4xl cursor-pointer">Watch History</div>
+        <div className="text-red-600 text-4xl cursor-pointer font-['Neue_Montreal']">Watch History</div>
         <div
-          className="flex items-center bg-red-600 h-[8vw] w-[20vw] px-3 rounded-md justify-center cursor-pointer md:w-[8vw] md:h-[2vw]"
+          className="flex items-center font-['Neue_Montreal'] bg-red-600 h-[8vw] w-[20vw] px-3 rounded-md justify-center cursor-pointer md:w-[8vw] md:h-[2vw]"
           onClick={handleClearHistory}
         >
           Clear History
@@ -58,8 +58,8 @@ const WatchHistory = () => {
                   <div>
                     <GoDotFill />
                   </div>
-                  <Link to={`/movie/${movie?.id}/watchTrailer`} className="block"><div>{movie?.title}</div></Link>
-                  <div className="ml-[28vw] p-2 rounded-full bg-black" onClick={() =>handleRemoveHistory(movie?.id,movie?.title)}><RxCross2 /></div>
+                  <Link to={`/movie/${movie?.id}/watchTrailer`} className="block font-['Neue_Montreal']"><div>{movie?.title}</div></Link>
+                  <div className="ml-[28vw] p-2 rounded-full bg-black font-['Neue_Montreal']" onClick={() =>handleRemoveHistory(movie?.id,movie?.title)}><RxCross2 /></div>
                   </div>
 
                  
@@ -70,7 +70,7 @@ const WatchHistory = () => {
           {
 
      watchList.length ===0 && (
-      <div className="text-zinc-400 text-2xl mt-[10vw]">"Your watch list is empty. Browse movies and start watching trailers!"</div>
+      <div className="text-zinc-400 text-2xl mt-[10vw] font-['Neue_Montreal']">"Your watch list is empty. Browse movies and start watching trailers!"</div>
 
      )
 

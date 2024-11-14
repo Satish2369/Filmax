@@ -26,19 +26,19 @@ const Favourites = () => {
 
         <div className='flex justify-between'>
         <div
-          className="flex items-center bg-red-600 h-[8vw] w-[20vw] px-3 rounded-md justify-center cursor-pointer md:w-[8vw] md:h-[2vw]"
+          className="flex items-center bg-red-600 h-[8vw] w-[20vw] px-3 rounded-md justify-center cursor-pointer font-['Neue_Montreal'] md:w-[8vw] md:h-[2vw]"
           onClick={handleBackButton}
         >
           <IoChevronBackSharp size={15} /> Back
         </div>
-            <div className='text-red-600 text-4xl text-center   cursor-pointer'>Favourites</div>
-            <div className='flex items-center bg-red-600 h-[8vw] w-[20vw] px-3 rounded-md justify-center cursor-pointer md:w-[10vw] md:h-[2.5vw]' onClick={handleClear}>Clear Favourites</div>
+            <div className='text-red-600 text-4xl text-center   cursor-pointer font-["Neue_Montreal"]'>Favourites</div>
+            <div className='flex items-center bg-red-600 h-[8vw] w-[20vw] px-3 rounded-md justify-center font-["Neue_Montreal"] cursor-pointer md:w-[10vw] md:h-[2.5vw]' onClick={handleClear}>Clear Favourites</div>
             
         </div>
          <div className='flex  flex-col justify-center items-center mt-[5vw]'>
 
              { filteredList.length >0 &&   filteredList?.map((movie)=>  
-             <div key={movie?.id}  className='bg-yellow-400 h-[5vw] p-6 w-3/6 flex  items-center m-2 rounded-md shadow-lg cursor-pointer'>
+             <div key={movie?.id}  className='bg-yellow-400 h-[5vw] p-6 w-3/6 flex  items-center m-2 rounded-md shadow-lg cursor-pointer font-["Neue_Montreal"]'>
               <Link to={`/movie/${movie?.id}`} className='block' > 
                <div className=' text-3xl flex gap-[2vw] justify-center items-center text-red-700 font-["Neue Montreal"]  '>
                 
@@ -54,12 +54,12 @@ const Favourites = () => {
      )}
 
      {
-        filteredList.length === 0 && <div className=' flex  gap-4  p-2'>
+        filteredList.length === 0 && <div className=' flex  gap-4  p-2 font-["Neue_Montreal"]'>
                <div>
                <img src="https://cdn2.iconfinder.com/data/icons/bluegem-ui-set-4/64/No_Favorites-512.png" alt="No Favourites yet" className='object-fit w-full h-full'/>
                </div>
              <div className='mt-[10vw]'>
-                <span className=' text-2xl ml-[3vw]  p-3 block bg-blue-800  rounded-md'>No Favourites yet</span>
+                <span className=' text-2xl ml-[3vw]  p-3 block bg-blue-800 font-["Neue_Montreal"] rounded-md'>No Favourites yet</span>
              </div>
            
         

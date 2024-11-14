@@ -17,7 +17,7 @@ const MovieList = ({title,movies}) => {
 
     <div>
        <div className='pl-4 bg-blend-color-burn'>
-            <h1 className='text-3xl py-6 pl-6 text-yellow-500'>{title}</h1>
+            <h1 className='text-3xl py-6 pl-6 text-red-600 font-["Neue_Montreal"]'>{title}</h1>
           <div className='flex overflow-x-auto scrollbar-hide'>
              <div className='flex'>
 

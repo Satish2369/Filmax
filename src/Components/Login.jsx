@@ -80,13 +80,13 @@ const Login = () => {
     };
 
     return (
-        <div className='bg-black w-screen h-screen overflow-hidden absolute'>
+        <div className='bg-black w-screen h-screen overflow-hidden absolute font-["Neue_Montreal"]'>
             <Header />
             {showSplash ? (
                 <SplashScreen /> // Show splash screen when `showSplash` is true
             ) : (
                 <form onSubmit={(e) => e.preventDefault()} className='absolute py-14 px-8 m-3  rounded-md bg-zinc-600 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-col text-white text-xl bg-opacity-90 border-zinc-200 md:px-16 md:m-12'>
-                    <h1 className='font-bold text-3xl py-4 mx-1 capitalize mb-3'>
+                    <h1 className='font-bold text-3xl py-4 mx-1 capitalize mb-3 font-["Neue_Montreal"]'>
                         {isSignInForm ? "Sign In" : "Sign Up"}
                     </h1>
                     {!isSignInForm && (
@@ -94,16 +94,16 @@ const Login = () => {
                             ref={name}
                             type="text"
                             placeholder='Full Name'
-                            className='py-1 m-2 px-4 bg-zinc-800'
+                            className='py-1 m-2 px-4 bg-zinc-800 font-["Neue_Montreal"]'
                         />
                     )}
-                    <input ref={email} type="text" placeholder='Email or phone number' className='py-1 m-2 px-4 bg-zinc-800' />
-                    <input ref={password} type="text" placeholder='Password' className='py-1 m-2 px-4 mb-4 bg-zinc-800' />
-                    <p className='text-red-800 semibold p-2 capitalize'>{errorMessage === null ? " " : errorMessage}</p>
-                    <button className='py-1 m-2 text-white bg-red-800 capitalize' onClick={handleButtonClick}>
+                    <input ref={email} type="text" placeholder='Email or phone number' className='py-1 m-2 px-4 bg-zinc-800 font-["Neue_Montreal"]' />
+                    <input ref={password} type="text" placeholder='Password' className='py-1 m-2 px-4 mb-4 bg-zinc-800 font-["Neue_Montreal"]' />
+                    <p className='text-red-800 semibold p-2 capitalize font-["Neue_Montreal"]'>{errorMessage === null ? " " : errorMessage}</p>
+                    <button className='py-1 m-2 text-white bg-red-800 capitalize font-["Neue_Montreal"]' onClick={handleButtonClick}>
                         {isSignInForm ? "Sign In" : "Sign Up"}
                     </button>
-                    <p className='p-4 text-[12px] cursor-pointer' onClick={toggleSignInForm}>
+                    <p className='p-4 text-[12px] cursor-pointer font-["Neue_Montreal"]' onClick={toggleSignInForm}>
                         {isSignInForm ? "New to Filmax? Sign up now" : "Already Registered? Sign In Now"}
                     </p>
                 </form>

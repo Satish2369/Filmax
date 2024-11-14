@@ -96,7 +96,7 @@ const MovieDetails = () => {
     <div className=" bg-black  text-white w-screen min-h-screen p-[2vw] font-['Neue_Montreal']">
       <div className="flex flex-col justify-between m-0 md:flex-row">
         <div
-          className="flex items-center bg-red-600 h-[8vw] w-[20vw] px-3 rounded-md justify-center cursor-pointer md:w-[8vw] md:h-[2vw]"
+          className="flex items-center bg-red-600 h-[8vw] w-[20vw] px-3 rounded-md justify-center font-['Neue_Montreal'] cursor-pointer md:w-[8vw] md:h-[2vw]"
           onClick={handleBackButton}
         >
           <IoChevronBackSharp size={15} /> Back
@@ -133,7 +133,7 @@ const MovieDetails = () => {
               Release Date :
             </h3>
             {
-              <h3 className="text-xl text-gray-300 font-['Neue_Montreal']">
+              <h3 className="text-xl  font-['Neue_Montreal']">
                 {selectedMovie?.release_date.split("-").reverse().join("-")}
               </h3>
             }
@@ -141,20 +141,20 @@ const MovieDetails = () => {
 
           <div className="flex gap-2 my-[1vw] font-['Neue_Montreal']">
 
-                  <div className="text-xl font-bold text-orange-400 ">Genres:</div>
-                  <div className="text-xl flex gap-2 text-gray-300">{genres.map((genre)=> <div key={genre?.id} className="">{genre?.name}</div>)}</div>
+                  <div className="text-xl font-bold text-orange-400 font-['Neue_Montreal']">Genres:</div>
+                  <div className="text-xl flex gap-2  font-['Neue_Montreal']">{genres.map((genre)=> <div key={genre?.id} className="">{genre?.name}</div>)}</div>
 
 
           </div>
           <div className="flex font-['Neue_Montreal']">
             <div
-              className=" flex justify-center items-center h-[3vw] w-[40vw] mt-[4vw] bg-red-600  text-xl rounded-md cursor-pointer md:w-[10vw] md:mt-0 "
+              className=" flex justify-center items-center h-[3vw] w-[40vw] mt-[4vw] bg-red-600  text-xl rounded-md cursor-pointer font-['Neue_Montreal'] md:w-[10vw] md:mt-0 "
               onClick={() => handleWatchTrailer(selectedMovie?.id,selectedMovie?.title)}
             >
               Watch Trailer
             </div>
             <div
-              className="m-2  py-2 w-[40vw] mt-[4vw] bg-red-600 text-center text-xl rounded-md cursor-pointer md:w-[14vw] md:mt-0"
+              className="m-2  py-2 w-[40vw] mt-[4vw] bg-red-600 text-center text-xl rounded-md cursor-pointer font-['Neue_Montreal'] md:w-[14vw] md:mt-0"
               onClick={() =>
                 handleAddOrRemoveFavourites()
               }
@@ -168,7 +168,7 @@ const MovieDetails = () => {
       <div className="mt-[55vw]  md:mt-[5vw] font-['Neue_Montreal']">
         <CastList movieId={movieId} />
       </div>
-      <div className="mt-[40vw]  md:mt-[5vw ] font-['Neue_Montreal']">
+      <div className="  md:mt-[5vw ] font-['Neue_Montreal']">
         <CrewList movieId={movieId} />
       </div>
 

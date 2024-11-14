@@ -3,7 +3,7 @@ import { IMG_CDN } from "../utils/constants";
 
 const CrewCard = ({ image, name, job }) => {
   return (
-    <div className="flex flex-col items-center p-2 mb-[2vw]">
+    <div className="flex flex-col items-center p-2 mb-[2vw] font-['Neue_Montreal']">
        
       {image && (
         <div>
@@ -14,8 +14,8 @@ const CrewCard = ({ image, name, job }) => {
               alt={name || "Cast Image"}
             />
           </div>
-          <p className=" mt-2  text-center text-red-600 font-bold text-xl">{name}</p>
-          <p className="text-gray-400 text-center ">Job  : {job}</p>
+          <p className=" mt-2  text-center text-red-600 font-bold text-xl font-['Neue_Montreal']">{name}</p>
+          <p className="text-gray-400 text-center font-['Neue_Montreal'] ">Job  : {job}</p>
         </div>
       )}
     </div>

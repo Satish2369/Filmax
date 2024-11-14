@@ -44,11 +44,11 @@ const VideoTitle = (props) => {
        </h1>
 
        <div className='flex gap-5 absolute top-[110vw] md:relative ml-[10vw] md:top-0 md:ml-0'>
-         <button className='bg-white px-7 text-black py-2 flex gap-2 items-center rounded-lg hover:bg-opacity-80 md:px-10' onClick={handlePlay}> 
+         <button className='bg-white px-7 text-black py-2 flex gap-2 items-center rounded-lg font-["Neue_Montreal"] hover:bg-opacity-80 md:px-10' onClick={handlePlay}> 
            <FaPlay /> Play
          </button>
 
-         <button className='bg-white text-black px-4 flex gap-2 items-center rounded-lg py-2 hover:bg-opacity-80 md:px-8' onClick={handleInfo}> 
+         <button className='bg-white text-black px-4 flex gap-2 items-center rounded-lg py-2 font-["Neue_Montreal"] hover:bg-opacity-80 md:px-8' onClick={handleInfo}> 
            <MdOutlineInfo /> More Info
          </button>
        </div>
