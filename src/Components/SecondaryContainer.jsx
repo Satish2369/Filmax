@@ -7,7 +7,7 @@ const SecondaryContainer = () => {
   const movies = useSelector((store) => store.movies);
   // const movies = [];
   return (
-    <div>
+    <div className='bg-black'>
       {movies?.nowPlayingMovies &&
       movies?.upcoming &&
       movies?.topRated &&
@@ -30,7 +30,7 @@ const SecondaryContainer = () => {
         </div>
       ) : (
         <>
-          <div className='-mt-28 relative z-20'>
+          <div className='-mt-28 relative z-20 bg-black'>
             <ShimmerList />
             <ShimmerList />
           <ShimmerList />

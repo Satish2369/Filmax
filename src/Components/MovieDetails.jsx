@@ -39,6 +39,7 @@ const MovieDetails = () => {
 
     if (movieFromStore) {
       setSelectedMovie(movieFromStore);
+      setGenres(movieFromStore?.genres);
     } else {
       const fetchMovieDetails = async () => {
         const response = await fetch(
@@ -48,7 +49,7 @@ const MovieDetails = () => {
         const data = await response.json();
 
         setSelectedMovie(data);
-        setGenres(data.genres);
+        setGenres(data?.genres);
       };
 
       fetchMovieDetails();
@@ -142,7 +143,7 @@ const MovieDetails = () => {
           <div className="flex gap-2 my-[1vw] font-['Neue_Montreal']">
 
                   <div className="text-xl font-bold text-orange-400 font-['Neue_Montreal']">Genres:</div>
-                  <div className="text-xl flex gap-2  font-['Neue_Montreal']">{genres.map((genre)=> <div key={genre?.id} className="">{genre?.name}</div>)}</div>
+                  <div className="text-xl flex gap-2  font-['Neue_Montreal']">{genres?.map((genre)=> <div key={genre?.id} className="">{genre?.name}</div>)}</div>
 
 
           </div>

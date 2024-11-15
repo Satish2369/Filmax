@@ -9,10 +9,13 @@ import SplashScreen from "./Components/SplashScreen";
 function App() {
   
 
-  return (
+  return ( <div className="bg-black">
+
 <Provider store={appStore}>
  <Body/>
 </Provider>
+  </div>
+
   )
   
 }

@@ -25,7 +25,7 @@ const VideoBackGround = ({ movieId }) => {
         ></iframe>
       ) : (
         <div className="fixed inset-0 flex items-center justify-center bg-black">
-          <span className="block font-['Neue_Montreal'] bg-black w-full h-full"></span>
+
         </div>
       )}
     </div>

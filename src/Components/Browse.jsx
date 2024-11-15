@@ -23,7 +23,7 @@ useTopRated();
 useUpcoming();
 
 return (
-  <div className="">
+  <div className=" bg-black">
 
  <Header/>
 

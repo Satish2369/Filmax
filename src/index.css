@@ -13,15 +13,18 @@ body {
 *{
   font-family: "Neue_Montreal";
 }
+@font-face {
+  font-family: 'NeueMontreal';
+  src: url('/fonts/NeueMontreal.ttf') format('truetype');
+}
 
 @font-face {
-  font-family: "Neue_Montreal";
-  src: url("NeueMontreal.ttf");
+  font-family: 'SummerLoving';
+  src: url('/fonts/Summer-Loving-Regular.otf') format('opentype');
 }
-  
-@font-face {
-  font-family: "Summer_Loving";
-  src: url("Summer-Loving-Regular.otf");
+
+body {
+  font-family: 'NeueMontreal', Arial, sans-serif;
 }
 
 
