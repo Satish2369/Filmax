@@ -14,12 +14,12 @@ body {
   font-family: "Neue_Montreal";
 }
 @font-face {
-  font-family: 'NeueMontreal';
+  font-family: 'Neue_Montreal';
   src: url('/fonts/NeueMontreal.ttf') format('truetype');
 }
 
 @font-face {
-  font-family: 'SummerLoving';
+  font-family: 'Summer_Loving';
   src: url('/fonts/Summer-Loving-Regular.otf') format('opentype');
 }
 
