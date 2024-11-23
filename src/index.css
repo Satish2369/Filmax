@@ -11,7 +11,7 @@ body {
   }
 
 *{
-  font-family: "Neue_Montreal";
+  font-family: "Neue_Montreal","DM Sans";
 }
 @font-face {
   font-family: 'Neue_Montreal';
@@ -24,7 +24,7 @@ body {
 }
 
 body {
-  font-family: 'NeueMontreal', Arial, sans-serif;
+  font-family: 'Neue_Montreal', "DM Sans";
 }
 
 

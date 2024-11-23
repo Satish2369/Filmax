@@ -7,7 +7,7 @@ const CrewCard = ({ image, name, job }) => {
        
       {image && (
         <div>
-          <div className="w-[40vw] h-[50vw]  overflow-hidden md:w-[15vw] md:h-[20vw]">
+          <div className="w-[48vw] h-[53vw]  overflow-hidden md:w-[18vw] md:h-[25vw]   mb-2">
             <img
               src={IMG_CDN + image}
               className="object-cover object-top w-full h-full "

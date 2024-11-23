@@ -6,6 +6,8 @@ import MovieDetails from './MovieDetails'
 import WatchTrailer from './WatchTrailer'
 import Favourites from './Favourites'
 import WatchHistory from './WatchHistory'
+import GPTSearchPage from './GPTSearchPage'
+import Header from './Header'
 const Body = () => {
 
     
@@ -36,6 +38,7 @@ const Body = () => {
         path:"/watchHistory",
         element:<WatchHistory/>
       },
+
       
   
 ]);

@@ -15,8 +15,8 @@ import { addToWatchList } from "../utils/watchSlice";
 const MovieDetails = () => {
   const movies = useSelector((store) => store.movies);
   const dispatch = useDispatch();
-   const favouriteList = useSelector((store)=> store?.favourite?.favouriteList)
- 
+  const favouriteList = useSelector((store) => store?.favourite?.favouriteList);
+
   const { movieId } = useParams();
   const navigate = useNavigate();
   const [similarMovies, setSimilarMovies] = useState([]);
@@ -39,7 +39,7 @@ const MovieDetails = () => {
 
     if (movieFromStore) {
       setSelectedMovie(movieFromStore);
-      setGenres(movieFromStore?.genres);
+      setGenres(movieFromStore?.genres || []);
     } else {
       const fetchMovieDetails = async () => {
         const response = await fetch(
@@ -47,9 +47,9 @@ const MovieDetails = () => {
           API_OPTIONS
         );
         const data = await response.json();
-
+         
         setSelectedMovie(data);
-        setGenres(data?.genres);
+        setGenres(data?.genres || []);
       };
 
       fetchMovieDetails();
@@ -68,11 +68,9 @@ const MovieDetails = () => {
     fetchSimilarMovies();
   }, [movieId, nowPlaying, popular, upcoming, topRated]);
 
-  const handleWatchTrailer = (id,title) => {
- 
+  const handleWatchTrailer = (id, title) => {
     navigate(`/movie/${movieId}/watchTrailer`);
-    dispatch(addToWatchList({id,title}))
-
+    dispatch(addToWatchList({ id, title }));
   };
 
   const handleBackButton = () => {
@@ -81,17 +79,18 @@ const MovieDetails = () => {
 
   const isFavourite = favouriteList.some((fav) => fav.id === parseInt(movieId));
 
-
   const handleAddOrRemoveFavourites = () => {
     if (isFavourite) {
       dispatch(removeFromFavourites({ id: selectedMovie.id }));
     } else {
-      dispatch(addToFavourites({ id: selectedMovie?.id, title: selectedMovie.title }));
+      dispatch(
+        addToFavourites({ id: selectedMovie?.id, title: selectedMovie.title })
+      );
     }
   };
-
-
- 
+  const handleHomepage = ()=> {
+    navigate('/browse')
+  }
 
   return (
     <div className=" bg-black  text-white w-screen min-h-screen p-[2vw] font-['Neue_Montreal']">
@@ -107,7 +106,7 @@ const MovieDetails = () => {
             {selectedMovie?.title}
           </h1>
         </div>
-        <div></div>
+        <div className="flex items-center bg-red-600 h-[8vw] w-[20vw] px-3 rounded-md justify-center font-['Neue_Montreal'] cursor-pointer md:w-[8vw] md:h-[2vw]" onClick={handleHomepage}>Home Page</div>
       </div>
       <div className="flex flex-col md:flex-row gap-[2vw] md:gap-0">
         <div className="first  w-[100%] h-[100%]   rounded-md  md:h-[44vw] md:w-[32%] md:ml-[3vw]">
@@ -119,6 +118,15 @@ const MovieDetails = () => {
                 alt="not loaded"
               />
             </>
+          )}
+          {!selectedMovie?.backdrop_path && (
+             <div className="md:w-[28vw] md:h-[35vw] bg-white  flex justify-center items-center rounded-md"> 
+
+
+                 <img src="https://th.bing.com/th/id/OIP.3pENhLo8vHxLzGC8LyzHqwAAAA?w=196&h=173&c=7&r=0&o=5&dpr=1.3&pid=1.7" alt="" className="object-fit w-full h-full rounded-md" />
+
+
+             </div>
           )}
         </div>
 
@@ -141,28 +149,36 @@ const MovieDetails = () => {
           </div>
 
           <div className="flex gap-2 my-[1vw] font-['Neue_Montreal']">
-
-                  <div className="text-xl font-bold text-orange-400 font-['Neue_Montreal']">Genres:</div>
-                  <div className="text-xl flex gap-2  font-['Neue_Montreal']">{genres?.map((genre)=> <div key={genre?.id} className="">{genre?.name}</div>)}</div>
-
-
+            <div className="text-xl font-bold text-orange-400 font-['Neue_Montreal']">
+              Genres:
+            </div>
+            <div className="text-xl flex gap-2  font-['Neue_Montreal']">
+              {genres?.map((genre) => (
+                <div key={genre?.id} className="">
+                  {genre?.name}
+                </div>
+              ))}
+            </div>
           </div>
           <div className="flex font-['Neue_Montreal']">
             <div
               className=" flex justify-center items-center h-[3vw] w-[40vw] mt-[4vw] bg-red-600  text-xl rounded-md cursor-pointer font-['Neue_Montreal'] md:w-[10vw] md:mt-0 "
-              onClick={() => handleWatchTrailer(selectedMovie?.id,selectedMovie?.title)}
+              onClick={() =>
+                handleWatchTrailer(selectedMovie?.id, selectedMovie?.title)
+              }
             >
               Watch Trailer
             </div>
             <div
               className="m-2  py-2 w-[40vw] mt-[4vw] bg-red-600 text-center text-xl rounded-md cursor-pointer font-['Neue_Montreal'] md:w-[14vw] md:mt-0"
-              onClick={() =>
-                handleAddOrRemoveFavourites()
-              }
+              onClick={() => handleAddOrRemoveFavourites()}
             >
-              { isFavourite  ?   "Remove from favourite":"Add To Favourite" }
+              {isFavourite ? "Remove from favourite" : "Add To Favourite"}
             </div>
-           
+          </div>
+          <div className="tagline mt-[2vw] p-2">
+
+               <h1 className="text-red-600 text-2xl ">{selectedMovie?.tagline}</h1>
           </div>
         </div>
       </div>

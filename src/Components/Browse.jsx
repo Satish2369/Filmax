@@ -23,16 +23,13 @@ useTopRated();
 useUpcoming();
 
 return (
-  <div className=" bg-black">
-
+  <div className=" bg-black min-h-screen" 
+  >
  <Header/>
-
-
 { showGptSearch  ? ( <GPTSearchPage/>  ): (
   <div className="bg-black">
     <MainContainer/>
-   <SecondaryContainer/>  
-   
+   <SecondaryContainer/>    
 </div>        
 )
  } 

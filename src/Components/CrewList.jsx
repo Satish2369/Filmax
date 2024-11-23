@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { API_OPTIONS, IMG_CDN } from "../utils/constants";
-import CrewCard from "./CrewCard"; // Rename CastCard to CrewCard if applicable
-
+import CrewCard from "./CrewCard"; 
+import ShimmerList from "./ShimmerList";
 const CrewList = ({ movieId }) => {
   const [crew, setCrew] = useState([]);
   
@@ -31,7 +31,7 @@ const CrewList = ({ movieId }) => {
         Crew
       </div>
       <div className="flex overflow-x-auto scrollbar-hide">
-        {crew &&
+        {crew.length>0 ?
           crew.map((member) => (
             <CrewCard
               key={member.id} 
@@ -39,7 +39,15 @@ const CrewList = ({ movieId }) => {
               name={member?.name}
               job={member?.job}
             />
-          ))}
+          )) : <div>
+
+
+          <ShimmerList/>
+
+
+
+
+            </div>}
       </div>
     </div>
   );

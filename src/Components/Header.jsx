@@ -45,18 +45,16 @@ const Header = () => {
         navigate("/");
       }
     });
-
-    // unsusbcribe when componnt unmounts
     return () => unsubscribe();
   }, []);
 
   const handleGptSearchClick = () => {
-    //Toggle Gpt search
     dispatch(toggleGptSearchView());
+   
   };
 
   const handleLanguageChange = (e) => {
-    // console.log(e.target.value)
+  
     dispatch(changeLanguage(e.target.value));
   };
   

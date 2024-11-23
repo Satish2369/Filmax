@@ -1,6 +1,6 @@
 import React from 'react'
 import MovieCard from './MovieCard'
-
+import ShimmerList from "./ShimmerList";
 
 
 
@@ -22,10 +22,16 @@ const MovieList = ({title,movies}) => {
              <div className='flex'>
 
 
-             {movies?.map((movie)  =>  <MovieCard  key={movie.id} movieId={movie.id}  posterPath={movie.poster_path}/>)}
+\
 
 
-
+             {movies.length>0 ? movies?.map((movie)  =>  <MovieCard  key={movie.id} movieId={movie.id}  posterPath={movie.poster_path}/>) : <>
+             
+             
+              <ShimmerList/>
+             
+             
+             </> }
 
              </div>
              </div>
