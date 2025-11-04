@@ -93,10 +93,10 @@ const MovieDetails = () => {
   }
 
   return (
-    <div className=" bg-black  text-white w-screen min-h-screen p-[2vw] font-['Neue_Montreal']">
+    <div className=" bg-black  text-white w-screen min-h-screen p-[2vw] font-['Neue Montreal']">
       <div className="flex flex-col justify-between m-0 md:flex-row">
         <div
-          className="flex items-center bg-red-600 h-[8vw] w-[20vw] px-3 rounded-md justify-center font-['Neue_Montreal'] cursor-pointer md:w-[8vw] md:h-[2vw]"
+          className="flex items-center bg-red-600 h-[8vw] w-[20vw] px-3 rounded-md justify-center font-['Neue Montreal'] cursor-pointer md:w-[8vw] md:h-[2vw]"
           onClick={handleBackButton}
         >
           <IoChevronBackSharp size={15} /> Back
@@ -106,7 +106,7 @@ const MovieDetails = () => {
             {selectedMovie?.title}
           </h1>
         </div>
-        <div className="flex items-center bg-red-600 h-[8vw] w-[20vw] px-3 rounded-md justify-center font-['Neue_Montreal'] cursor-pointer md:w-[8vw] md:h-[2vw]" onClick={handleHomepage}>Home Page</div>
+        <div className="flex items-center bg-red-600 h-[8vw] w-[20vw] px-3 rounded-md justify-center font-['Neue Montreal'] cursor-pointer md:w-[8vw] md:h-[2vw]" onClick={handleHomepage}>Home Page</div>
       </div>
       <div className="flex flex-col md:flex-row gap-[2vw] md:gap-0">
         <div className="first  w-[100%] h-[100%]   rounded-md  md:h-[44vw] md:w-[32%] md:ml-[3vw]">
@@ -132,13 +132,13 @@ const MovieDetails = () => {
 
         <div className="second    w-[100%] h-fit p-[1vw] mt-0 md:w-[50%] md:m-[4vw] ">
           <div className="">
-            <h3 className="text-justify text-xl font-bold text-white font-['Neue_Montreal'] md:">
+            <h3 className="text-justify text-xl font-bold text-white font-['Neue Montreal'] md:">
               {selectedMovie?.overview}
             </h3>
           </div>
 
           <div className=" flex m-[1vw] gap-[1vw] ml-0">
-            <h3 className="font-bold text-orange-400 text-xl font-['Neue_Montreal']">
+            <h3 className="font-bold text-orange-400 text-xl font-['Neue Montreal']">
               Release Date :
             </h3>
             {
@@ -148,11 +148,11 @@ const MovieDetails = () => {
             }
           </div>
 
-          <div className="flex gap-2 my-[1vw] font-['Neue_Montreal']">
-            <div className="text-xl font-bold text-orange-400 font-['Neue_Montreal']">
+          <div className="flex gap-2 my-[1vw] font-['Neue Montreal']">
+            <div className="text-xl font-bold text-orange-400 font-['Neue Montreal']">
               Genres:
             </div>
-            <div className="text-xl flex gap-2  font-['Neue_Montreal']">
+            <div className="text-xl flex gap-2  font-['Neue Montreal']">
               {genres?.map((genre) => (
                 <div key={genre?.id} className="">
                   {genre?.name}
@@ -160,7 +160,7 @@ const MovieDetails = () => {
               ))}
             </div>
           </div>
-          <div className="flex font-['Neue_Montreal']">
+          <div className="flex font-['Neue Montreal']">
             <div
               className=" flex justify-center items-center h-[3vw] w-[40vw] mt-[4vw] bg-red-600  text-xl rounded-md cursor-pointer font-['Neue_Montreal'] md:w-[10vw] md:mt-0 "
               onClick={() =>
@@ -170,7 +170,7 @@ const MovieDetails = () => {
               Watch Trailer
             </div>
             <div
-              className="m-2  py-2 w-[40vw] mt-[4vw] bg-red-600 text-center text-xl rounded-md cursor-pointer font-['Neue_Montreal'] md:w-[14vw] md:mt-0"
+              className="m-2  py-2 w-[40vw] mt-[4vw] bg-red-600 text-center text-xl rounded-md cursor-pointer font-['Neue Montreal'] md:w-[14vw] md:mt-0"
               onClick={() => handleAddOrRemoveFavourites()}
             >
               {isFavourite ? "Remove from favourite" : "Add To Favourite"}
@@ -182,14 +182,14 @@ const MovieDetails = () => {
           </div>
         </div>
       </div>
-      <div className="mt-[55vw]  md:mt-[5vw] font-['Neue_Montreal']">
+      <div className="mt-[55vw]  md:mt-[5vw] font-['Neue Montreal']">
         <CastList movieId={movieId} />
       </div>
-      <div className="  md:mt-[5vw ] font-['Neue_Montreal']">
+      <div className="  md:mt-[5vw ] font-['Neue Montreal']">
         <CrewList movieId={movieId} />
       </div>
 
-      <div className="overflow-x-scroll scrollbar-hide  md:mt-5 font-['Neue_Montreal']">
+      <div className="overflow-x-scroll scrollbar-hide  md:mt-5 font-['Neue Montreal']">
         <MovieList title={"Similar Movies"} movies={similarMovies} />
       </div>
     </div>

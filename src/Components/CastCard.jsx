@@ -14,8 +14,8 @@ const CastCard = ({ image, name, char }) => {
               alt={name || "Cast Image"}
             />
           </div>
-          <p className=" mt-2   text-red-600 text-center font-bold text-xl font-['Neue_Montreal']">{name}</p>
-          <p className="text-gray-400  text-center font-['Neue_Montreal'] md:w-[16vw]">Character  : {char}</p>
+          <p className=" mt-2   text-red-600 text-center font-bold text-xl font-['Neue Montreal']">{name}</p>
+          <p className="text-gray-400  text-center font-['Neue Montreal'] md:w-[16vw]">Character  : {char}</p>
         </div>
       )}
     </div>

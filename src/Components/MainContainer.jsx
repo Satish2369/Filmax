@@ -18,7 +18,7 @@ if (!movies || movies.length === 0) return <div>Loading...</div>;
 
 if(movies === null) return;
 
-const mainMovie = movies[0];
+const mainMovie = movies[1];
  
 // console.log(mainMovie);
 

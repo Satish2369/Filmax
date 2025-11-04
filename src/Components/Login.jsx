@@ -98,7 +98,7 @@ const Login = () => {
                         />
                     )}
                     <input ref={email} type="text" placeholder='Email or phone number' className='py-1 m-2 px-4 bg-zinc-800 font-["Neue_Montreal"]' />
-                    <input ref={password} type="text" placeholder='Password' className='py-1 m-2 px-4 mb-4 bg-zinc-800 font-["Neue_Montreal"]' />
+                    <input ref={password} type="password" placeholder='Password' className='py-1 m-2 px-4 mb-4 bg-zinc-800 font-["Neue_Montreal"]' />
                     <p className='text-red-800 semibold p-2 capitalize font-["Neue_Montreal"]'>{errorMessage === null ? " " : errorMessage}</p>
                     <button className='py-1 m-2 text-white bg-red-800 capitalize font-["Neue_Montreal"]' onClick={handleButtonClick}>
                         {isSignInForm ? "Sign In" : "Sign Up"}

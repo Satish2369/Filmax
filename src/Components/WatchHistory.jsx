@@ -50,7 +50,7 @@ const WatchHistory = () => {
           watchList.map((movie) => (
             <div
               key={movie?.id}
-              className="bg-yellow-400 h-[5vw] p-6 w-4/6 flex items-center m-2 rounded-md shadow-lg cursor-pointer box-border"
+              className="bg-yellow-400 h-[5vw] p-6 w-4/6 flex items-center m-2 rounded-md shadow-lg cursor-pointer box-border relative"
             >
              
                 <div className="text-3xl flex gap-[2vw] justify-between items-center text-red-700 font-['Neue Montreal']">
@@ -59,7 +59,7 @@ const WatchHistory = () => {
                     <GoDotFill />
                   </div>
                   <Link to={`/movie/${movie?.id}/watchTrailer`} className="block font-['Neue_Montreal']"><div>{movie?.title}</div></Link>
-                  <div className="ml-[28vw] p-2 rounded-full bg-black font-['Neue_Montreal']" onClick={() =>handleRemoveHistory(movie?.id,movie?.title)}><RxCross2 /></div>
+                  <div className=" absolute right-4 p-2 rounded-full bg-black font-['Neue_Montreal'] " onClick={() =>handleRemoveHistory(movie?.id,movie?.title)}><RxCross2 /></div>
                   </div>
 
                  

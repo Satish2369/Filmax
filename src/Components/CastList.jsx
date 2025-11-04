@@ -23,7 +23,7 @@ const CastList = ({movieId}) => {
 
   return (
     <div className="bg-black  w-screen h-fit ">
-            <div className="text-5xl ml-[2vw] mb-[2vw] mt-[1vw]   font-['Neue_Montreal'] text-red-500 md:text-6xl ">Casts</div>
+            <div className="text-5xl ml-[2vw] mb-[2vw] mt-[1vw]   font-['Neue Montreal'] text-red-500 md:text-6xl ">Casts</div>
             <div className="flex overflow-x-auto scrollbar-hide">
             {cast.length>0 ?
         cast.map((actor) => (
